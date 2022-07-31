@@ -7,11 +7,11 @@ image:{
 item:{
     title:String,
     price:Number,
-    county:String,
+    country:String,
     city:String,
     isPopuler:boolean,
     description:String,
-    image:[{_id:ObjectId}],
+    imageId:[{_id:ObjectId}],
     featureId : [{_id:ObjectId}],
     activityId:[{_id:ObjectId}]
 }
@@ -38,7 +38,8 @@ booking:{
     bankId:[{_id:ObjectId}],
     proofPayment:String,
     bankFrom:String,
-    accountHolder:String
+    accountHolder:String,
+    status: string
 }
 member:{
     firstName:String,
