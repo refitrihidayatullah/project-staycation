@@ -4,5 +4,8 @@ module.exports = {
     },
     viewCategory: (req, res) => {
         res.render('admin/category/view_category');
+    },
+    viewBank: (req, res) => {
+        res.render('admin/bank/view_bank');
     }
 }
