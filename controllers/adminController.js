@@ -7,5 +7,11 @@ module.exports = {
     },
     viewBank: (req, res) => {
         res.render('admin/bank/view_bank');
+    },
+    viewItem: (req, res) => {
+        res.render('admin/item/view_item');
+    },
+    viewBooking: (req, res) => {
+        res.render('admin/booking/view_booking');
     }
 }
