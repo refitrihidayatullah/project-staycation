@@ -22,6 +22,12 @@
                             <!-- Page Heading -->
                             <h1 class="h3 mb-4 text-gray-800">Category</h1>
                             <!-- end Heading -->
+                            <!-- Button trigger modal -->
+                            <div class="d-flex flex-row-reverse bd-highlight">
+                                <button type="button" class="btn btn-primary mb-2 p-2 bd-highlight" data-toggle="modal" data-target="#modalCategory">
+    Add         
+  </button>
+                            </div>
                             <!-- first tables -->
                             <%- include('table_category.ejs')%>
                                 <!-- end tables -->
@@ -65,5 +71,6 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <%- include('../../partials/js.ejs')%>
+    <%- include('add_modal.ejs') %>
+        <!-- Bootstrap core JavaScript-->
+        <%- include('../../partials/js.ejs')%>
