@@ -18,15 +18,20 @@
 
                         <!-- Begin Page Content -->
                         <div class="container-fluid">
+                            <!-- tambahan alert category -->
+                            <%- include('../../partials/message.ejs') %>
 
-                            <!-- Page Heading -->
-                            <h1 class="h3 mb-4 text-gray-800">Category</h1>
-                            <!-- end Heading -->
-                            <!-- Button trigger modal -->
+                                <!-- end tambahan alert category -->
+                                <!-- Page Heading -->
+                                <h1 class="h3 mb-4 text-gray-800">
+                                    <%= title %>
+                                </h1>
+                                <!-- end Heading -->
+                                <!-- Button trigger modal -->
 
-                            <!-- first tables -->
-                            <%- include('table_category.ejs')%>
-                                <!-- end tables -->
+                                <!-- first tables -->
+                                <%- include('table_category.ejs')%>
+                                    <!-- end tables -->
                         </div>
                         <!-- /.container-fluid -->
 
@@ -66,7 +71,20 @@
             </div>
         </div>
     </div>
-
+    <!-- include modal edit dan add -->
     <%- include('add_modal.ejs') %>
-        <!-- Bootstrap core JavaScript-->
-        <%- include('../../partials/js.ejs')%>
+        <%- include('edit_modal.ejs') %>
+            <!-- Bootstrap core JavaScript-->
+            <%- include('../../partials/js.ejs')%>
+
+                <!--scrip modal tambahan  -->
+                <script>
+                    $('#dataTable').on('click', '.button-update', function() {
+                        let id = $(this).data('id');
+                        let name = $(this).data('name');
+                        // console.log(id + name);
+                        $('#editCategory').modal('show');
+                        $('.id').val(id);
+                        $('.name').val(name);
+                    })
+                </script>

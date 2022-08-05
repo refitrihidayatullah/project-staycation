@@ -3,6 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// install method override agar dapat menggunakan put
+const methodOverride = require('method-override');
+// install methot express-session dan connect-flash notifikasi saat delete etc
+const session = require('express-session');
+const flash = require('connect-flash');
+
+
 // import mongoose
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/db_staycation');
@@ -18,6 +25,18 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+// method override use
+app.use(methodOverride('_method'));
+// methode express-session use
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+}));
+// method connect-flash use
+app.use(flash());
 
 app.use(logger('dev'));
 app.use(express.json());

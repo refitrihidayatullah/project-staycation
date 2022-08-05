@@ -2,7 +2,7 @@
     <div class="card-header py-3">
         <div class="d-flex flex-row bd-highlight justify-content-between">
             <h6 class="m-0 mt-2 font-weight-bold text-primary d-flex ">DataTable Category</h6>
-            <button type="button" class="btn btn-primary d-flex bd-highlight btn-circle btn-sm mt-2" data-toggle="modal" data-target="#modalCategory">
+            <button type="button" class="btn btn-primary d-flex bd-highlight btn-circle btn-sm mt-2" data-toggle="modal" data-target="#addCategory">
 <i class="fas fa-plus"></i>         
 </button>
         </div>
@@ -26,8 +26,10 @@
                                 <%= category[i].name; %>
                             </td>
                             <td class="d-flex justify-content-around">
-                                <a href="#" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-edit"></i></a>|
-                                <a href="#" class="btn btn-danger btn-sm btn-circle"><i class="fa fa-trash"></i></a>
+                                <form action="/admin/category/<%= category[i].id %>?_method=DELETE" method="POST">
+                                    <a href="javascript:void()" type="button" class="btn btn-warning btn-sm btn-circle button-update" data-id="<%= category[i].id %>" data-name="<%= category[i].name %>"><i class="fa fa-edit"></i></a>|
+                                    <button type="submit" class="btn btn-danger btn-sm btn-circle"><i class="fa fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                         <%}%>

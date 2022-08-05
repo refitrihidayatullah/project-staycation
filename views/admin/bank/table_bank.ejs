@@ -1,6 +1,11 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTable Bank</h6>
+        <div class="d-flex flex-row bd-highlight justify-content-between">
+            <h6 class="m-0 mt-2 font-weight-bold text-primary d-flex ">DataTable Bank</h6>
+            <button type="button" class="btn btn-primary d-flex bd-highlight btn-circle btn-sm mt-2" data-toggle="modal" data-target="#addBank">
+<i class="fas fa-plus"></i>         
+</button>
+        </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -13,6 +18,18 @@
                         <th>Name</th>
                         <th>Action</th>
                 </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td class="d-flex justify-content-around">
+                            <a href="" type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-edit"></i></a>|
+                            <button type="submit" class="btn btn-danger btn-sm btn-circle"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
