@@ -16,19 +16,33 @@
                         <th>Bank Name</th>
                         <th>Rekening Number</th>
                         <th>Name</th>
+
                         <th>Action</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td class="d-flex justify-content-around">
-                            <a href="" type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-edit"></i></a>|
-                            <button type="submit" class="btn btn-danger btn-sm btn-circle"><i class="fa fa-trash"></i></button>
-                        </td>
-                    </tr>
+                    <% for(let i =0; i < bank.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= i+1 %>
+                            </td>
+                            <td>
+                                <%= bank[i].nameBank; %>
+                            </td>
+                            <td>
+                                <%= bank[i].nomorRekening; %>
+                            </td>
+                            <td>
+                                <%= bank[i].name; %>
+                            </td>
+
+
+
+                            <td class="d-flex justify-content-around">
+                                <a href="" type="button" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-edit"></i></a>|
+                                <button type="submit" class="btn btn-danger btn-sm btn-circle"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <% }%>
                 </tbody>
             </table>
         </div>

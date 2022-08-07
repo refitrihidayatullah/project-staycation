@@ -8,7 +8,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
             </div>
-            <form action="/admin/bank" method="POST">
+            <form action="/admin/bank" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="nameBank">Name Bank</label>
@@ -16,15 +16,15 @@
                     </div>
                     <div class="form-group">
                         <label for="noRek">No Rekening</label>
-                        <input type="text" class="form-control" id="noRek" name="noRek" placeholder="Enter No Rekening" required>
+                        <input type="text" class="form-control" id="nomorRekening" name="nomorRekening" placeholder="Enter No Rekening" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
                     </div>
                     <div class="form-group">
-                        <label for="img">Image</label>
-                        <input type="file" class="form-control" id="img" name="img" placeholder="Enter Image" required>
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control" id="image" name="image" required>
                     </div>
                 </div>
                 <div class="modal-footer">

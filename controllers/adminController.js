@@ -1,4 +1,11 @@
-const Category = require('../models/Category')
+// IMPORT MODEL
+const Category = require('../models/Category');
+const Bank = require('../models/Bank');
+
+
+
+
+
 module.exports = {
     viewDashboard: (req, res) => {
         const title = "Staycation | Dashboard";
@@ -13,7 +20,7 @@ module.exports = {
             const alert = { message: alertMessage, status: alertStatus };
             // console.log(category);
             res.render('admin/category/view_category', { category, alert, title });
-        } catch (err) {
+        } catch (error) {
             res.redirect('/admin/category');
         }
 
@@ -26,8 +33,8 @@ module.exports = {
             req.flash('alertMessage', 'Success Add Category');
             req.flash('alertStatus', 'success');
             res.redirect('/admin/category');
-        } catch (err) {
-            req.flash('alertMessage', '$err.message');
+        } catch (error) {
+            req.flash('alertMessage', `${error.message}`);
             req.flash('alertStatus', 'danger');
             res.redirect('/admin/category');
         }
@@ -44,8 +51,8 @@ module.exports = {
             req.flash('alertMessage', 'Success Update Category');
             req.flash('alertStatus', 'success');
             res.redirect("/admin/category");
-        } catch (err) {
-            req.flash('alertMessage', '$err.message');
+        } catch (error) {
+            req.flash('alertMessage', `${error.message}`);
             req.flash('alertStatus', 'danger');
             res.redirect('/admin/category');
         }
@@ -59,15 +66,53 @@ module.exports = {
             req.flash('alertStatus', 'success');
             res.redirect('/admin/category');
 
-        } catch (err) {
-            req.flash('alertMessage', '$err.message');
+        } catch (error) {
+            req.flash('alertMessage', `${error.message}`);
             req.flash('alertStatus', 'danger');
             res.redirect('/admin/category');
         }
     },
-    viewBank: (req, res) => {
-        const title = "Staycation | Bank";
-        res.render('admin/bank/view_bank', { title });
+    viewBank: async(req, res) => {
+        try {
+            const title = "Staycation | Bank";
+            const bank = await Bank.find();
+
+            const alertMessage = req.flash('alertMessage');
+            const alertStatus = req.flash('alertStatus');
+            const alert = { message: alertMessage, status: alertStatus };
+
+
+            res.render('admin/bank/view_bank', { bank, title, alert });
+
+        } catch (error) {
+            req.flash('alertMessage', `${error.message}`);
+            req.flash('alertStatus', 'danger');
+            res.redirect('/admin/bank');
+        }
+
+    },
+    addBank: async(req, res) => {
+        try {
+            const { name, nameBank, nomorRekening } = req.body;
+
+            await Bank.create({
+                name,
+                nameBank,
+                nomorRekening,
+                imageUrl: `images/${req.file.filename}`
+            });
+            req.flash('alertMessage', 'Success Add Bank');
+            req.flash('alertStatus', 'success');
+            // console.log(name, nameBank, nomorRekening, imageUrl);
+
+            // console.log(nameBank + noRek, name);~
+            res.redirect('/admin/bank');
+
+        } catch (error) {
+            req.flash('alertMessage', `${error.message}`);
+            req.flash('alertStatus', 'danger');
+            res.redirect('/admin/bank');
+        }
     },
     viewItem: (req, res) => {
         const title = "Staycation | Item";
