@@ -69,4 +69,30 @@
 
     <!-- Bootstrap core JavaScript-->
     <%- include('add_modal.ejs') %>
-        <%- include('../../partials/js.ejs')%>
+        <%- include('edit_modal.ejs') %>
+            <%- include('../../partials/js.ejs')%>
+
+                <!-- <script>
+            $('#dataTable').on('click', '.button-update', function() {
+                let id = $(this).data('id');
+                let name = $(this).data('name');
+                // console.log(id + name);
+                $('#editCategory').modal('show');
+                $('.id').val(id);
+                $('.name').val(name);
+            })
+        </script> -->
+                <script>
+                    $('#dataTable').on('click', '.button-update', function() {
+                        let id = $(this).data('id');
+                        let name = $(this).data('name');
+                        let nameBank = $(this).data('namebank');
+                        let nomorRekening = $(this).data('nomorrekening');
+                        console.log(id + name + nameBank + nomorRekening);
+                        $('#editBank').modal('show');
+                        $('.id').val(id);
+                        $('.name').val(name);
+                        $('.nameBank').val(nameBank);
+                        $('.nomorRekening').val(nomorRekening);
+                    })
+                </script>
