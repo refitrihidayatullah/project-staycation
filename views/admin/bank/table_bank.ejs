@@ -40,8 +40,10 @@
 
 
                             <td class="d-flex justify-content-around">
-                                <a href="javascript:void()" type="button" class="btn btn-warning btn-sm btn-circle button-update" data-id="<%= bank[i].id %>" data-name="<%= bank[i].name %>" data-namebank="<%= bank[i].nameBank %>" data-nomorRekening="<%= bank[i].nomorRekening %>"><i class="fa fa-edit"></i></a>|
-                                <button type="submit" class="btn btn-danger btn-sm btn-circle"><i class="fa fa-trash"></i></button>
+                                <form action="/admin/bank/<%= bank[i].id %>?_method=DELETE" method="POST">
+                                    <a href="javascript:void()" type="button" class="btn btn-warning btn-sm btn-circle button-update" data-id="<%= bank[i].id %>" data-name="<%= bank[i].name %>" data-namebank="<%= bank[i].nameBank %>" data-nomorRekening="<%= bank[i].nomorRekening %>"><i class="fa fa-edit"></i></a>|
+                                    <button type="submit" class="btn btn-danger btn-sm btn-circle"><i class="fa fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                         <% }%>

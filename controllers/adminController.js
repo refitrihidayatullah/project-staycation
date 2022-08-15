@@ -3,6 +3,7 @@ const Category = require('../models/Category');
 const Bank = require('../models/Bank');
 const fs = require('fs-extra');
 const path = require('path');
+const { findOne } = require('../models/Category');
 
 
 
@@ -142,6 +143,19 @@ module.exports = {
             req.flash('alertMessage', `${error.message}`);
             req.flash('alertStatus', 'danger');
             res.redirect('/admin/bank');
+        }
+    },
+    deleteBank: async(req, res) => {
+        try {
+            const { id } = req.params;
+            const bank = await Bank.findOne({ _id: id });
+            await fs.unlink(path.join(`public/${bank.imageUrl}`));
+            await bank.remove();
+            req.flash('alertMessage', 'Success Delete Bank');
+            req.flash('alertStatus', 'success');
+            res.redirect('/admin/bank');
+        } catch (error) {
+
         }
     },
     viewItem: (req, res) => {
