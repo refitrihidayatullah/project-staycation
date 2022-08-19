@@ -19,7 +19,8 @@ const itemSchema = new mongoose.Schema({
         required: true
     },
     isPopuler: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     description: {
         type: String,
