@@ -24,23 +24,33 @@
                                     <%= title %>
                                 </h1>
                                 <!-- end Heading -->
-                                <!-- first tables -->
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#show-item" type="button" role="tab" aria-controls="home" aria-selected="true">Show Item</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#add-item" type="button" role="tab" aria-controls="profile" aria-selected="false">Add Item</button>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="myTabContent">
 
-                                    <%- include('show_table_item.ejs') %>
-                                        <%- include('add_item.ejs') %>
+                                <% if(action == 'view'){ %>
+                                    <!-- first tables -->
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#show-item" type="button" role="tab" aria-controls="home" aria-selected="true">Show Item</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#add-item" type="button" role="tab" aria-controls="profile" aria-selected="false">Add Item</button>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <%- include('show_table_item.ejs') %>
+                                            <%- include('add_item.ejs') %>
+                                    </div>
+                                    <!-- end tables -->
+                                    <% } else if(action == 'show image') { %>
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#show-image" type="button" role="tab" aria-controls="home" aria-selected="true">Show Image</button>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent">
+                                            <%- include('show_image_item.ejs') %>
+                                        </div>
+                                        <% } %>
 
-
-                                </div>
-                                <!-- end tables -->
                         </div>
                         <!-- /.container-fluid -->
 
