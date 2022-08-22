@@ -322,6 +322,20 @@ module.exports = {
             res.redirect('/admin/item');
         }
     },
+    viewDetailItem: async(req, res) => {
+        const { itemId } = req.params;
+        try {
+            const alertMessage = req.flash('alertMessage');
+            const alertStatus = req.flash('alertStatus');
+            const alert = { message: alertMessage, status: alertStatus };
+            const title = 'Staycation | detail item'
+            res.render('admin/item/detail_item/view_detail_item', { title, alert })
+        } catch (error) {
+            req.flash('alertMessage', `${error.message}`);
+            req.flash('alertStatus', 'danger');
+            res.redirect(`/admin/item/show-detail-item/${itemId}`);
+        }
+    },
     viewBooking: (req, res) => {
         const title = "Staycation | Booking";
         res.render('admin/booking/view_booking', { title });
