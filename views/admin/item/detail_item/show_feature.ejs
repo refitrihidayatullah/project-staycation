@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-5">
-                    <form action="/admin/bank" method="POST" enctype="multipart/form-data">
+                    <form action="/admin/item/add/feature" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="">Name</label>
@@ -21,6 +21,7 @@
                                 <label for="image">Image</label>
                                 <input type="file" class="form-control" id="image" name="image" required>
                             </div>
+                            <input type="hidden" value="<%- itemId %>" name="itemId">
                         </div>
                         <a href="/admin/item" class="btn btn-secondary ml-3">Close</a>
                         <button type="submit" class="btn btn-primary">Save</button>
@@ -39,7 +40,30 @@
                                     <th>Action</th>
                             </thead>
                             <tbody>
+                                <% for(let i =0; i < feature.length; i++) { %>
+                                    <tr>
+                                        <td>
+                                            <%= i+1 %>
+                                        </td>
+                                        <td>
+                                            <%= feature[i].name; %>
+                                        </td>
+                                        <td>
+                                            <%= feature[i].qty; %>
+                                        </td>
+                                        <td>
+                                            <img src="http://localhost:3000/<%= feature[i].imageUrl %>" alt="imageUrl" width="70px">
+                                        </td>
 
+
+                                        <td class="d-flex justify-content-around">
+                                            <form action="" method="POST">
+                                                <a href="javascript:void()" type="button" class="btn btn-warning btn-sm btn-circle button-update"><i class="fa fa-edit"></i></a>
+                                                <button type="submit" class="btn btn-danger btn-sm btn-circle"><i class="fa fa-trash"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <% }%>
                             </tbody>
                         </table>
                     </div>
