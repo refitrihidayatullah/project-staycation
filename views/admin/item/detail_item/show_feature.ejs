@@ -57,7 +57,7 @@
 
 
                                         <td class="d-flex justify-content-around">
-                                            <form action="/admin/feature/<%- feature[i].id %>?_method=DELETE" method="POST">
+                                            <form action="/admin/item/<%- itemId %>/feature/<%- feature[i].id %>?_method=DELETE" method="POST">
                                                 <a href="javascript:void()" type="button" class="btn btn-warning btn-sm btn-circle button-update" data-id="<%-feature[i].id %>" data-name="<%- feature[i].name %>" data-qty="<%- feature[i].qty %>"><i class="fa fa-edit"></i></a>
                                                 <button type="submit" class="btn btn-danger btn-sm btn-circle"><i class="fa fa-trash"></i></button>
                                             </form>
